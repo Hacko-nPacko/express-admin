@@ -15,7 +15,11 @@ function getArgs (req, res) {
         id       : req.params[1] == 'add' ? null : req.params[1].split(','),
         data     : req.body,
         upload   : req.files,
-        upath    : res.locals._admin.config.app.upload
+        upath    : res.locals._admin.config.app.upload,
+        s3       : res.locals._admin.config.app.s3,
+        s3_region: res.locals._admin.config.app.s3_region, 
+        s3_bucket: res.locals._admin.config.app.s3_bucket, 
+        s3_url   : res.locals._admin.config.app.s3_url
     };
     args.name = res.locals._admin.slugs[args.slug];
     return args;
