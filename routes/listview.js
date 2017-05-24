@@ -124,6 +124,7 @@ function render (req, res, args, ddata, pager, order, next) {
     res.locals.columns = ddata.columns;
     res.locals.records = ddata.records;
     res.locals.pagination = pager;
+    res.locals.add_item = args.config.listview.add_item;
 
     res.locals.partials = {
         content:    'listview',

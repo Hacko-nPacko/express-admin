@@ -7,14 +7,14 @@ exports.get = function (req, res, next) {
     for (var key in settings) {
         var item = settings[key];
         if (!item.mainview.show || !item.table.pk || item.table.view) continue;
-        tables.push({slug: item.slug, name: item.table.verbose});
+        tables.push({slug: item.slug, name: item.table.verbose, add_item: item.listview.add_item});
     }
 
     var views = [];
     for (var key in settings) {
         var item = settings[key];
         if (!item.mainview.show || !item.table.view) continue;
-        views.push({slug: item.slug, name: item.table.verbose});
+        views.push({slug: item.slug, name: item.table.verbose, add_item: item.listview.add_item});
     }
 
     var customs = [];
