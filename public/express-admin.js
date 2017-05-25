@@ -244,5 +244,28 @@ $(function () {
 
     // datepicker
     initDatetimePickers('static', document);
+
+    $("button.btn-danger[type=submit]").on('click', function(e) {
+        bootbox.confirm({
+            message: "Are you sure?", 
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: 'No',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function(result) {
+                if (result) {
+                    $(e.currentTarget).parents("form")[0].submit();
+                }
+            }
+        });
+
+        return false;
+    });
 });
 })(jQuery);
