@@ -250,14 +250,15 @@ $(function () {
             message: "Are you sure?", 
             buttons: {
                 confirm: {
-                    label: 'Yes',
-                    className: 'btn-success'
+                    label: 'Delete',
+                    className: 'btn-danger'
                 },
                 cancel: {
-                    label: 'No',
-                    className: 'btn-danger'
+                    label: 'Cancel',
+                    className: 'btn-default'
                 }
             },
+            size: "small",
             callback: function(result) {
                 if (result) {
                     $(e.currentTarget).parents("form")[0].submit();
