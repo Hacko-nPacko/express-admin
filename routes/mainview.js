@@ -6,7 +6,7 @@ exports.get = function (req, res, next) {
     var tables = [];
     for (var key in settings) {
         var item = settings[key];
-        if (!item.mainview.show || !item.table.pk || item.table.view) continue;
+        if (!item.mainview.show || item.mainview.hide_from_table|| !item.table.pk || item.table.view) continue;
         tables.push({slug: item.slug, name: item.table.verbose, add_item: item.listview.add_item});
     }
 
