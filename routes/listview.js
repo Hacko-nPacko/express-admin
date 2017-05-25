@@ -125,6 +125,8 @@ function render (req, res, args, ddata, pager, order, next) {
     res.locals.records = ddata.records;
     res.locals.pagination = pager;
     res.locals.add_item = args.config.listview.add_item;
+    res.locals.is_event = res.locals.view.slug == "event";
+    res.locals.is_users = res.locals.view.slug == "users";
 
     res.locals.partials = {
         content:    'listview',
