@@ -123,6 +123,7 @@ function render (req, res, args, ddata, pager, order, next) {
 
     res.locals.columns = ddata.columns;
     res.locals.records = ddata.records;
+    res.locals.meta_columns = getMetaColumns(args.config, ddata.columns);
     res.locals.pagination = pager;
     res.locals.add_item = args.config.listview.add_item;
     res.locals.is_event = res.locals.view.slug == "event";
@@ -136,4 +137,22 @@ function render (req, res, args, ddata, pager, order, next) {
     };
     
     next();
+}
+
+function getMetaColumns(config, columns) {
+    var metaColumns = [];
+    columns.forEach(function(column) {
+        var found = false;
+        config.columns.forEach(function(cfg) {
+            if (cfg.verbose === column) {
+                var colspan = cfg.listview.col_span ? cfg.listview.col_span : 1;
+                metaColumns.push({'name': cfg.verbose, 'col_span': colspan});
+                found = true;
+            }
+        });
+        if (!found) {
+            metaColumns.push({'name': column, 'col_span': 1});
+        };
+    });
+    return metaColumns;
 }
