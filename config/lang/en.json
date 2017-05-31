@@ -44,7 +44,7 @@
 
     "success"           : "Success",
     "error"             : "Error",
-    "saved"             : "The record have been saved",
+    "saved"             : "The operation was successful",
     "checkout"          : "Check out the highlighted fields below",
 
     "notfound"          : "The requested page was not found."
