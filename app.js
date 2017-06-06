@@ -18,7 +18,7 @@ var express = require('express'),
     consolidate = require('consolidate'),
     hogan = require('hogan.js');
 
-var moment = require('moment'),
+var moment = require('moment-timezone'),
     async = require('async');
 
 var Client = require('./lib/db/client'),
